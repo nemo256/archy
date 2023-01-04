@@ -1,60 +1,65 @@
 <div align="center">
 
-# `bp`
+# `archy`
 
 <h3>
-  Personal boilerplate
+  An automatic full arch linux installation script using my setup.
 </h3>
 
 <!-- Badges -->
-![GitHub Repo stars](https://img.shields.io/github/stars/nemo256/bp?style=for-the-badge)
+![GitHub Repo stars](https://img.shields.io/github/stars/nemo256/archy?style=for-the-badge)
 ![Maintenance](https://shields.io/maintenance/yes/2022?style=for-the-badge)
-![License](https://shields.io/github/license/nemo256/bp?style=for-the-badge)
+![License](https://shields.io/github/license/nemo256/archy?style=for-the-badge)
 
 <!-- Demo image -->
-![Demo](demo.png)
+![Demo](demo.gif)
 
 </div>
 
 <!-- TABLE OF CONTENTS -->
 ## Table of Contents
 
-* [Project Structure 📁](#project-structure)
-* [Install 🔨](#install)
-* [Use 🚀](#use)
-* [Develop ⚙️](#develop)
+* [Setup ⚙️](#setup)
+* [Credits 🤝](#credits)
 * [License 📑](#license)
 
-## Project Structure 📁
-```
-bp/
-├── file
-├── file
-├── folder/
-│   ├── folder/
-│   │   ├── file
-│   │   └── file
-│   └── file
-└── file
+## Setup ⚙️
+
+### Download the project:
+```shell
+pacman -S git
+git clone https://github.com/nemo256/archy
+cd archy
 ```
 
-## Install 🔨
-- Step 1
+### Create or modify the <.env> file:
 ```shell
-$ Command
-```
-## Use 🚀
-> Hint
-- Step 1
-```shell
-$ Command
+USERNAME=             # your username (eg: foo)
+PASSWORD=             # your password (eg: bar)
+HOSTNAME=             # your hostname (eg: macbook)
+SHELL=                # preferred shell (eg: /bin/zsh)
+TOKEN=                # this is the github token (you can leave it empty)
+DISK=                 # disk you want to install archy on (eg: /dev/sda)
+MOUNT_OPTIONS=        # disk mount options (eg: "noatime,compress=zstd,ssd,commit=120")
+FS=                   # filesystem type (eg: ext4, btrfs...)
+TIMEZONE=             # timezone like this <Continent/city> (eg: Europe/paris, America/chicago)
+KEYMAP=               # keymap of the keyboard (eg: us, fr, es...)
+REPO=                 # main archy repo.
+ARCH=                 # architecture <eg: x86_64, i686, arm...>
 ```
 
-## Develop ⚙️
-- Step 1
+### Make the scripts executable:
 ```shell
-$ Command
+chmod +x install.sh postinstall.sh
 ```
+
+### Run the installation: 
+```shell
+./install.sh
+```
+
+## Credits 🤝
+- Credits go to the developers of [archiso](https://github.com/archlinux/archiso).
 
 ## License 📑
-- Please read [bp/LICENSE](https://github.com/nemo256/bp/blob/master/LICENSE)
+- Please read [archy/LICENSE](https://github.com/nemo256/archy/blob/master/LICENSE)
