@@ -336,7 +336,7 @@ sed -i 's/^%wheel ALL=(ALL:ALL) NOPASSWD: ALL/# %wheel ALL=(ALL:ALL) NOPASSWD: A
 sed -i 's/^# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/' /etc/sudoers
 sed -i 's/^# %wheel ALL=(ALL:ALL) ALL/%wheel ALL=(ALL:ALL) ALL/' /etc/sudoers
 
-rm -fvr $HOME/.postinstall.sh $HOME/.env
+rm -fvr $HOME/postinstall $HOME/.env
 
 echo -ne "
 ------------------------------------------------------------------------------------------

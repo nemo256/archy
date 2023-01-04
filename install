@@ -370,5 +370,5 @@ echo -ne "
 "
 # Wifi configuration
 mkdir -p /mnt/var/lib/iwd
-( arch-chroot /mnt /root/postinstall.sh ) |& tee postinstall.log
+( arch-chroot /mnt /root/postinstall ) |& tee postinstall.log
 cp postinstall.log /mnt/root
