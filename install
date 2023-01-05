@@ -20,7 +20,7 @@ setfont ter-v32b
 # TIMEZONE=<eg: Europe/Paris>
 # KEYMAP=<eg: us,uk,es...>
 
-source /root/.env
+source .env
 
 # Logo
 clear
@@ -28,9 +28,7 @@ echo -ne "
 ------------------------------------------------------------------------------------------
                                 Automated Archy Installer
 ------------------------------------------------------------------------------------------
-"
 
-echo -ne "
                                Press any key to continue...
 "
 read
