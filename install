@@ -357,5 +357,9 @@ echo -ne "
                            Chrooting Into The New Installation
 ------------------------------------------------------------------------------------------
 "
+# Copy setup file
+echo "Copying..."
+cp -fr /root/archy/postinstall /root/archy/.env /mnt/root && echo "Copied successfully"
+
 ( arch-chroot /mnt /root/archy/postinstall ) |& tee postinstall.log
 cp postinstall.log /mnt/root
