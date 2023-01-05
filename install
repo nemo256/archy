@@ -348,7 +348,6 @@ echo -ne "
 ------------------------------------------------------------------------------------------
 "
 mkdir -p /mnt/opt/swap
-chattr +C /mnt/opt/swap
 dd if=/dev/zero of=/mnt/opt/swap/swapfile bs=1M count=4096 status=progress
 chmod 600 /mnt/opt/swap/swapfile # set permissions.
 chown root /mnt/opt/swap/swapfile
@@ -362,5 +361,5 @@ echo -ne "
                            Chrooting Into The New Installation
 ------------------------------------------------------------------------------------------
 "
-( arch-chroot /mnt postinstall ) |& tee postinstall.log
+( arch-chroot /mnt ./postinstall ) |& tee postinstall.log
 cp postinstall.log /mnt/root
