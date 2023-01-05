@@ -344,13 +344,12 @@ echo -ne "
                                 Create a swap partition 4Gb
 ------------------------------------------------------------------------------------------
 "
-mkdir -p /mnt/swap
-dd if=/dev/zero of=/mnt/swap/swapfile bs=1M count=4096 status=progress
-chmod 600 /mnt/swap/swapfile
-chown root /mnt/swap/swapfile
-mkswap /mnt/swap/swapfile
-swapon /mnt/swap/swapfile
-echo "/swap/swapfile	none	swap	sw	0	0" >> /mnt/etc/fstab
+dd if=/dev/zero of=/mnt/swapfile bs=1M count=4096 status=progress
+chmod 600 /mnt/swapfile
+chown root /mnt/swapfile
+mkswap /mnt/swapfile
+swapon /mnt/swapfile
+echo "/swapfile	none	swap	sw	0	0" >> /mnt/etc/fstab
 
 echo -ne "
 ------------------------------------------------------------------------------------------
