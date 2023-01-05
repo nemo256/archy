@@ -127,8 +127,6 @@ pacstrap /mnt \
   grub \
   hdparm \
   intel-ucode \
-  ipw2100-fw \
-  ipw2200-fw \
   irssi \
   iw \
   iwd \
@@ -211,7 +209,6 @@ pacstrap /mnt \
   xl2tpd \
   zsh \
   alsa-firmware \
-  asoundconf \
   aspell \
   autoconf \
   automake \
