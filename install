@@ -85,283 +85,283 @@ echo -ne "
 "
 
 # This is a better approache because it doesnt have to update everytime!
-# echo "Pacstraping... "
-# pacstrap /mnt \
-#   alsa-utils \
-#   arch-install-scripts \
-#   archlinux-keyring \
-#   archinstall \
-#   archiso \
-#   b43-fwcutter \
-#   base \
-#   bind-tools \
-#   brltty \
-#   broadcom-wl-dkms \
-#   btrfs-progs \
-#   clonezilla \
-#   cloud-init \
-#   crda \
-#   cryptsetup \
-#   darkhttpd \
-#   ddrescue \
-#   dhclient \
-#   diffutils \
-#   dmraid \
-#   dnsmasq \
-#   dosfstools \
-#   e2fsprogs \
-#   edk2-shell \
-#   efibootmgr \
-#   espeakup \
-#   ethtool \
-#   exfatprogs \
-#   f2fs-tools \
-#   fatresize \
-#   fsarchiver \
-#   fzf \
-#   gnu-netcat \
-#   gpart \
-#   gpm \
-#   gptfdisk \
-#   grml-zsh-config \
-#   grub \
-#   hdparm \
-#   intel-ucode \
-#   irssi \
-#   iw \
-#   iwd \
-#   jfsutils \
-#   kitty-terminfo \
-#   less \
-#   lftp \
-#   libfido2 \
-#   libusb-compat \
-#   linux-lts \
-#   linux-atm \
-#   linux-firmware \
-#   linux-firmware-marvell \
-#   livecd-sounds \
-#   lsscsi \
-#   lvm2 \
-#   lynx \
-#   man-db \
-#   man-pages \
-#   mc \
-#   mdadm \
-#   memtest86+ \
-#   mkinitcpio \
-#   mkinitcpio-archiso \
-#   mkinitcpio-nfs-utils \
-#   modemmanager \
-#   mtools \
-#   nano \
-#   nbd \
-#   ndisc6 \
-#   networkmanager \
-#   nfs-utils \
-#   nilfs-utils \
-#   nmap \
-#   ntfs-3g \
-#   nvme-cli \
-#   openconnect \
-#   openssh \
-#   openvpn \
-#   partclone \
-#   parted \
-#   partimage \
-#   pcsclite \
-#   ppp \
-#   pptpclient \
-#   pv \
-#   qemu-guest-agent \
-#   refind \
-#   reflector \
-#   reiserfsprogs \
-#   rp-pppoe \
-#   rsync \
-#   rxvt-unicode-terminfo \
-#   screen \
-#   sdparm \
-#   sg3_utils \
-#   smartmontools \
-#   sof-firmware \
-#   squashfs-tools \
-#   sudo \
-#   syslinux \
-#   systemd-resolvconf \
-#   tcpdump \
-#   terminus-font \
-#   testdisk \
-#   tmux \
-#   tpm2-tss \
-#   udftools \
-#   usb_modeswitch \
-#   usbmuxd \
-#   usbutils \
-#   neovim \
-#   virtualbox-guest-utils-nox \
-#   vpnc \
-#   wireless-regdb \
-#   wireless_tools \
-#   wpa_supplicant \
-#   wvdial \
-#   xfsprogs \
-#   xl2tpd \
-#   zsh \
-#   alsa-firmware \
-#   aspell \
-#   autoconf \
-#   automake \
-#   cmake \
-#   binutils \
-#   bison \
-#   bluez \
-#   bluez-utils \
-#   brightnessctl \
-#   dkms \
-#   dmidecode \
-#   docker \
-#   dsniff \
-#   dunst \
-#   edk2-ovmf \
-#   exa \
-#   fakeroot \
-#   file \
-#   findutils \
-#   firefox \
-#   flex \
-#   gawk \
-#   gcc \
-#   gcr \
-#   gettext \
-#   git \
-#   glib2 \
-#   glibc \
-#   go \
-#   grep \
-#   groff \
-#   gtk2 \
-#   gzip \
-#   hping \
-#   hspell \
-#   htop \
-#   hunspell \
-#   libcap \
-#   libcap-ng \
-#   libconfig \
-#   libev \
-#   libnotify \
-#   libpcap \
-#   libtool \
-#   libvoikko \
-#   libx11 \
-#   libxinerama \
-#   libxft \
-#   linux-lts-headers \
-#   lsof \
-#   m4 \
-#   make \
-#   mdp \
-#   meson \
-#   mpc \
-#   mpd \
-#   mpv \
-#   multipath-tools \
-#   ncdu \
-#   ncmpcpp \
-#   neofetch \
-#   net-tools \
-#   newsboat \
-#   nodejs \
-#   noto-fonts \
-#   noto-fonts-cjk \
-#   noto-fonts-extra \
-#   npm \
-#   nuspell \
-#   os-prober \
-#   pacman \
-#   pacman-contrib \
-#   patch \
-#   pax-utils \
-#   picom \
-#   pkgconf \
-#   pulsemixer \
-#   python-pip \
-#   ranger \
-#   scrot \
-#   sed \
-#   stow \
-#   sxiv \
-#   the_silver_searcher \
-#   transmission-cli \
-#   tree \
-#   ttf-fira-code \
-#   ttf-nerd-fonts-symbols-2048-em \
-#   unrar \
-#   unzip \
-#   upower \
-#   uthash \
-#   vi \
-#   webkit2gtk \
-#   which \
-#   xclip \
-#   xmlstarlet \
-#   xorg \
-#   xorg-xinit \
-#   yarn \
-#   yt-dlp \
-#   zathura \
-#   zathura-pdf-mupdf \
-#   zip \
-#   libva-intel-driver \
-#   libvdpau-va-gl \
-#   libva-intel-driver \
-#   libva-utils \
-#   vulkan-intel \
-#   xf86-video-intel
-#
-# genfstab -L /mnt >> /mnt/etc/fstab
-# echo " 
-#   Generated /etc/fstab:
-# "
-# cat /mnt/etc/fstab
-#
-# echo -ne "
-# ------------------------------------------------------------------------------------------
-#                           GRUB BIOS Bootloader Install And Check
-# ------------------------------------------------------------------------------------------
-# "
-# if [[ ${DISK} != /dev/vda ]]; then
-#   if [[ ! -d "/sys/firmware/efi" ]]; then
-#       grub-install --boot-directory=/mnt/boot ${DISK}
-#       echo "Installed bootloader for BIOS!"
-#   else
-#       echo "Skipping (UEFI)!"
-#   fi
-# fi
-# echo -ne "
-# ------------------------------------------------------------------------------------------
-#                                 Create a swap partition <8Gb
-# ------------------------------------------------------------------------------------------
-# "
-# mkdir -p /mnt/opt/swap
-# dd if=/dev/zero of=/mnt/opt/swap/swapfile bs=1M count=4096 status=progress
-# chmod 600 /mnt/opt/swap/swapfile
-# chown root /mnt/opt/swap/swapfile
-# mkswap /mnt/opt/swap/swapfile
-# swapon /mnt/opt/swap/swapfile
-# echo "/opt/swap/swapfile	none	swap	sw	0	0" >> /mnt/etc/fstab
-#
-# echo -ne "
-# ------------------------------------------------------------------------------------------
-#                            Chrooting Into The New Installation
-# ------------------------------------------------------------------------------------------
-# "
-# # Copy setup file
-# echo "Copying..."
-# rm -fvr /mnt/root
-# mkdir /mnt/root
-# cp -fr /root/archy/postinstall /root/archy/.env /mnt/root && echo "Copied successfully"
-#
-# ( arch-chroot /mnt /root/archy/postinstall ) |& tee postinstall.log
-# cp postinstall.log /mnt/root
+echo "Pacstraping... "
+pacstrap /mnt \
+  alsa-utils \
+  arch-install-scripts \
+  archlinux-keyring \
+  archinstall \
+  archiso \
+  b43-fwcutter \
+  base \
+  bind-tools \
+  brltty \
+  broadcom-wl-dkms \
+  btrfs-progs \
+  clonezilla \
+  cloud-init \
+  crda \
+  cryptsetup \
+  darkhttpd \
+  ddrescue \
+  dhclient \
+  diffutils \
+  dmraid \
+  dnsmasq \
+  dosfstools \
+  e2fsprogs \
+  edk2-shell \
+  efibootmgr \
+  espeakup \
+  ethtool \
+  exfatprogs \
+  f2fs-tools \
+  fatresize \
+  fsarchiver \
+  fzf \
+  gnu-netcat \
+  gpart \
+  gpm \
+  gptfdisk \
+  grml-zsh-config \
+  grub \
+  hdparm \
+  intel-ucode \
+  irssi \
+  iw \
+  iwd \
+  jfsutils \
+  kitty-terminfo \
+  less \
+  lftp \
+  libfido2 \
+  libusb-compat \
+  linux-lts \
+  linux-atm \
+  linux-firmware \
+  linux-firmware-marvell \
+  livecd-sounds \
+  lsscsi \
+  lvm2 \
+  lynx \
+  man-db \
+  man-pages \
+  mc \
+  mdadm \
+  memtest86+ \
+  mkinitcpio \
+  mkinitcpio-archiso \
+  mkinitcpio-nfs-utils \
+  modemmanager \
+  mtools \
+  nano \
+  nbd \
+  ndisc6 \
+  networkmanager \
+  nfs-utils \
+  nilfs-utils \
+  nmap \
+  ntfs-3g \
+  nvme-cli \
+  openconnect \
+  openssh \
+  openvpn \
+  partclone \
+  parted \
+  partimage \
+  pcsclite \
+  ppp \
+  pptpclient \
+  pv \
+  qemu-guest-agent \
+  refind \
+  reflector \
+  reiserfsprogs \
+  rp-pppoe \
+  rsync \
+  rxvt-unicode-terminfo \
+  screen \
+  sdparm \
+  sg3_utils \
+  smartmontools \
+  sof-firmware \
+  squashfs-tools \
+  sudo \
+  syslinux \
+  systemd-resolvconf \
+  tcpdump \
+  terminus-font \
+  testdisk \
+  tmux \
+  tpm2-tss \
+  udftools \
+  usb_modeswitch \
+  usbmuxd \
+  usbutils \
+  neovim \
+  virtualbox-guest-utils-nox \
+  vpnc \
+  wireless-regdb \
+  wireless_tools \
+  wpa_supplicant \
+  wvdial \
+  xfsprogs \
+  xl2tpd \
+  zsh \
+  alsa-firmware \
+  aspell \
+  autoconf \
+  automake \
+  cmake \
+  binutils \
+  bison \
+  bluez \
+  bluez-utils \
+  brightnessctl \
+  dkms \
+  dmidecode \
+  docker \
+  dsniff \
+  dunst \
+  edk2-ovmf \
+  exa \
+  fakeroot \
+  file \
+  findutils \
+  firefox \
+  flex \
+  gawk \
+  gcc \
+  gcr \
+  gettext \
+  git \
+  glib2 \
+  glibc \
+  go \
+  grep \
+  groff \
+  gtk2 \
+  gzip \
+  hping \
+  hspell \
+  htop \
+  hunspell \
+  libcap \
+  libcap-ng \
+  libconfig \
+  libev \
+  libnotify \
+  libpcap \
+  libtool \
+  libvoikko \
+  libx11 \
+  libxinerama \
+  libxft \
+  linux-lts-headers \
+  lsof \
+  m4 \
+  make \
+  mdp \
+  meson \
+  mpc \
+  mpd \
+  mpv \
+  multipath-tools \
+  ncdu \
+  ncmpcpp \
+  neofetch \
+  net-tools \
+  newsboat \
+  nodejs \
+  noto-fonts \
+  noto-fonts-cjk \
+  noto-fonts-extra \
+  npm \
+  nuspell \
+  os-prober \
+  pacman \
+  pacman-contrib \
+  patch \
+  pax-utils \
+  picom \
+  pkgconf \
+  pulsemixer \
+  python-pip \
+  ranger \
+  scrot \
+  sed \
+  stow \
+  sxiv \
+  the_silver_searcher \
+  transmission-cli \
+  tree \
+  ttf-fira-code \
+  ttf-nerd-fonts-symbols-2048-em \
+  unrar \
+  unzip \
+  upower \
+  uthash \
+  vi \
+  webkit2gtk \
+  which \
+  xclip \
+  xmlstarlet \
+  xorg \
+  xorg-xinit \
+  yarn \
+  yt-dlp \
+  zathura \
+  zathura-pdf-mupdf \
+  zip \
+  libva-intel-driver \
+  libvdpau-va-gl \
+  libva-intel-driver \
+  libva-utils \
+  vulkan-intel \
+  xf86-video-intel
+
+genfstab -L /mnt >> /mnt/etc/fstab
+echo " 
+  Generated /etc/fstab:
+"
+cat /mnt/etc/fstab
+
+echo -ne "
+------------------------------------------------------------------------------------------
+                          GRUB BIOS Bootloader Install And Check
+------------------------------------------------------------------------------------------
+"
+if [[ ${DISK} != /dev/vda ]]; then
+  if [[ ! -d "/sys/firmware/efi" ]]; then
+      grub-install --boot-directory=/mnt/boot ${DISK}
+      echo "Installed bootloader for BIOS!"
+  else
+      echo "Skipping (UEFI)!"
+  fi
+fi
+echo -ne "
+------------------------------------------------------------------------------------------
+                                Create a swap partition <8Gb
+------------------------------------------------------------------------------------------
+"
+mkdir -p /mnt/opt/swap
+dd if=/dev/zero of=/mnt/opt/swap/swapfile bs=1M count=4096 status=progress
+chmod 600 /mnt/opt/swap/swapfile
+chown root /mnt/opt/swap/swapfile
+mkswap /mnt/opt/swap/swapfile
+swapon /mnt/opt/swap/swapfile
+echo "/opt/swap/swapfile	none	swap	sw	0	0" >> /mnt/etc/fstab
+
+echo -ne "
+------------------------------------------------------------------------------------------
+                           Chrooting Into The New Installation
+------------------------------------------------------------------------------------------
+"
+# Copy setup file
+echo "Copying..."
+rm -fvr /mnt/root
+mkdir /mnt/root
+cp -fr /root/archy/postinstall /root/archy/.env /mnt/root && echo "Copied successfully"
+
+( arch-chroot /mnt /root/archy/postinstall ) |& tee postinstall.log
+cp postinstall.log /mnt/root
