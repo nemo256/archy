@@ -360,5 +360,5 @@ pacstrap /mnt \
 #                            Chrooting Into The New Installation
 # ------------------------------------------------------------------------------------------
 # "
-# ( arch-chroot /mnt ./postinstall ) |& tee postinstall.log
+# ( arch-chroot /mnt /root/archy/postinstall ) |& tee postinstall.log
 # cp postinstall.log /mnt/root
