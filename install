@@ -358,8 +358,6 @@ echo -ne "
 "
 # Copy setup file
 echo "Copying..."
-rm -fvr /mnt/root
-mkdir /mnt/root
 cp -fr /root/archy/postinstall /root/archy/.env /mnt/root && echo "Copied successfully"
 
 ( arch-chroot /mnt /root/archy/postinstall ) |& tee postinstall.log
