@@ -50,16 +50,16 @@ ARCH=                 # architecture <eg: x86_64, i686, arm...>
 
 ### Make the scripts executable:
 ```shell
-chmod +x install.sh postinstall.sh
+chmod +x install postinstall
 ```
 
 ### Run the installation: 
 ```shell
-./install.sh
+./install
 ```
 
 ## Credits 🤝
-- Credits go to the developers of [archiso](https://github.com/archlinux/archiso).
+- Credits go to the developers of [arch](https://archlinux.org/).
 
 ## License 📑
 - Please read [archy/LICENSE](https://github.com/nemo256/archy/blob/master/LICENSE)
