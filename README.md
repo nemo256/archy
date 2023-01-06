@@ -59,7 +59,7 @@ chmod +x install postinstall
 ```
 
 ## Credits 🤝
-- Credits go to the developers of [arch](https://archlinux.org/).
+- Credits go to the developers of [Arch Linux](https://archlinux.org/).
 
 ## License 📑
 - Please read [archy/LICENSE](https://github.com/nemo256/archy/blob/master/LICENSE)
