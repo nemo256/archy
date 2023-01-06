@@ -44,8 +44,6 @@ MOUNT_OPTIONS=        # disk mount options (eg: "noatime,compress=zstd,ssd,commi
 FS=                   # filesystem type (eg: ext4, btrfs...)
 TIMEZONE=             # timezone like this <Continent/city> (eg: Europe/paris, America/chicago)
 KEYMAP=               # keymap of the keyboard (eg: us, fr, es...)
-REPO=                 # main archy repo.
-ARCH=                 # architecture <eg: x86_64, i686, arm...>
 ```
 
 ### Make the scripts executable:
@@ -53,7 +51,7 @@ ARCH=                 # architecture <eg: x86_64, i686, arm...>
 chmod +x install postinstall
 ```
 
-### Run the installation: 
+### Run the installation 🚀:
 ```shell
 ./install
 ```
