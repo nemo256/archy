@@ -330,7 +330,7 @@ echo "Pacstraping... "
 #   libva-utils \
 #   vulkan-intel \
 #   xf86-video-intel
-pacstrap /mnt base base-devel vim ranger git
+pacstrap /mnt base base-devel vim ranger git linux linux-headers
 
 genfstab -L /mnt >> /mnt/etc/fstab
 echo " 
