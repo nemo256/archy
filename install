@@ -147,7 +147,7 @@ pacstrap /mnt \
   lftp \
   libfido2 \
   libusb-compat \
-  linux-lts \
+  linux \
   linux-atm \
   linux-firmware \
   linux-firmware-marvell \
@@ -268,7 +268,7 @@ pacstrap /mnt \
   libx11 \
   libxinerama \
   libxft \
-  linux-lts-headers \
+  linux-headers \
   lsof \
   m4 \
   make \
