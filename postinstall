@@ -111,16 +111,45 @@ git config --global credential.helper store
 
 echo -ne "
 ------------------------------------------------------------------------------------------
-                                Installing Dwm, St, Dmenu...
+                                  Installing from github
 ------------------------------------------------------------------------------------------
 "
 
-git clone https://github.com/nemo256/dwm
-git clone https://github.com/nemo256/st
-git clone https://github.com/nemo256/dmenu
-git clone https://github.com/nemo256/slock
-git clone https://github.com/nemo256/slstatus
-git clone https://github.com/nemo256/.dotfiles
+# Preparing custom configuration files (dotfiles)
+echo "Preparing custom configuration files..."
+cd $HOME
+[[ ! -d .dotfiles ]] \
+  && git clone https://github.com/nemo256/.dotfiles
+[[ ! -d Documents ]] \
+  && git clone https://github.com/nemo256/Documents
+[[ ! -d Pictures ]] \
+  && git clone https://github.com/nemo256/Pictures
+[[ ! -d Music ]] \
+  && git clone https://github.com/nemo256/Music
+[[ ! -d Templates ]] \
+  && git clone https://github.com/nemo256/Templates
+
+# Preparing dwm, st, dmenu...
+[[ ! -d .build ]] && mkdir .build
+cd .build
+[[ ! -d dwm ]] \
+  && git clone https://github.com/nemo256/dwm
+[[ ! -d st ]] \
+  && git clone https://github.com/nemo256/st
+[[ ! -d dmenu ]] \
+  && git clone https://github.com/nemo256/dmenu
+[[ ! -d slstatus ]] \
+  && git clone https://github.com/nemo256/slstatus
+[[ ! -d slock ]] \
+  && git clone https://github.com/nemo256/slock
+[[ ! -d ani-cli ]] \
+  && git clone https://github.com/pystardust/ani-cli
+[[ ! -d tty-clock ]] \
+  && git clone https://github.com/xorg62/tty-clock
+[[ ! -d grabc ]] \
+  && git clone https://github.com/muquit/grabc
+[[ ! -d tremc ]] \
+  && git clone https://github.com/tremc/tremc
 
 # Change directory to where the build files are
 cd /root/.build
@@ -142,8 +171,7 @@ echo -ne "
                                  Restoring Home Directory
 ------------------------------------------------------------------------------------------
 "
-cd $HOME && mkdir Downloads Videos Music Work
-cd $HOME
+cd $HOME && mkdir Videos Work
 
 echo -ne "
 ------------------------------------------------------------------------------------------
