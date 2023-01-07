@@ -210,7 +210,7 @@ pacstrap /mnt \
   usbmuxd \
   usbutils \
   neovim \
-  virtualbox-guest-utils-nox \
+  virtualbox-guest-utils \
   vpnc \
   wireless-regdb \
   wireless_tools \
