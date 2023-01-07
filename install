@@ -38,9 +38,9 @@ echo -ne "
                                      Network Setup
 ------------------------------------------------------------------------------------------
 "
-cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup
-reflector -a 48 -c France,Germany -f 5 -l 20 --sort rate --save /etc/pacman.d/mirrorlist
-mkdir /mnt &>/dev/null # hiding error message if any
+# cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup
+# reflector -a 48 -c France,Germany -f 5 -l 20 --sort rate --save /etc/pacman.d/mirrorlist
+# mkdir /mnt &>/dev/null # hiding error message if any
 
 echo -ne "
 ------------------------------------------------------------------------------------------
