@@ -107,7 +107,7 @@ echo -ne "
 "
 # Adding the credentials file
 echo -ne "https://nemo256:${TOKEN}@github.com" > ${HOME}/.git-credentials
-git config credential.helper store
+git config --global credential.helper store
 
 echo -ne "
 ------------------------------------------------------------------------------------------
