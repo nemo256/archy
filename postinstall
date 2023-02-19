@@ -17,7 +17,7 @@
 # TIMEZONE=<eg: Europe/Paris>
 # KEYMAP=<eg: us,uk,es...>
 
-source /.env
+source .env
 
 # Logo
 clear
