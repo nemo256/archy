@@ -47,24 +47,13 @@ echo -ne "
                                    Formating Disks
 ------------------------------------------------------------------------------------------
 "
-# Make sure everything is unmounted
 umount -A --recursive /mnt
+sgdisk -Z ${DISK}
+sgdisk -a 2048 -o ${DISK}
+sgdisk -n 1::+256M  --typecode=1:AF00 --change-name=1:'ESP'  ${DISK}
+sgdisk -n 2::-0     --typecode=2:8300 --change-name=2:'ROOT' ${DISK}
+partprobe ${DISK}
 
-# Disk prep
-sgdisk -Z ${DISK} # zap all on disk
-sgdisk -a 2048 -o ${DISK} # new gpt disk 2048 alignment
-
-# Create partitions
-sgdisk -n 1::+128M --typecode=1:af00 --change-name=1:'Boot Loader' ${DISK} # partition 1 (Boot loader Partition)
-sgdisk -n 2::+256M --typecode=2:8300 --change-name=2:'Boot' ${DISK} # partition 2 (Boot Partition)
-sgdisk -n 3::-0 --typecode=3:8300 --change-name=3:'Root' ${DISK} # partition 3 (Root), default start, remaining space
-
-if [[ ! -d "/sys/firmware/efi" ]]; then # checking for bios system
-    sgdisk -A 1:set:2 ${DISK}
-fi
-partprobe ${DISK} # reread partition table to ensure it is correct
-
-# Make filesystems
 echo -ne "
 ------------------------------------------------------------------------------------------
                                   Creating Filesystems
