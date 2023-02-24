@@ -40,7 +40,7 @@ echo -ne "
 "
 cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup
 reflector -a 48 -c France,Germany -f 5 -l 20 --sort rate --verbose --save /etc/pacman.d/mirrorlist
-mkdir /mnt &>/dev/null # hiding error message if any
+mkdir /mnt &>/dev/null
 
 echo -ne "
 ------------------------------------------------------------------------------------------
