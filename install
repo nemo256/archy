@@ -85,7 +85,7 @@ echo -ne "
                                     Archy installation
 ------------------------------------------------------------------------------------------
 "
-pacstrap /mnt base base-devel
+pacstrap /mnt base base-devel linux-lts linux-lts-headers linux-firmware
 genfstab -U /mnt >> /mnt/etc/fstab
 
 echo -ne "
