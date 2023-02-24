@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Set a bold terminus font
-setfont ter-v32b
+setfont ter-132b
 
 ################################################
 #                                              #
