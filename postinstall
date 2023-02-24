@@ -50,9 +50,14 @@ echo -ne "
                                      Adding User
 ------------------------------------------------------------------------------------------
 "
-pwconv
-echo "${USERNAME}:${PASSWORD}" | chpasswd
+groupadd libvirt
+useradd -m -G wheel,audio,video,libvirt -s /bin/bash --badname ${USERNAME}
+ENCRYPTED_MASTER_PASSWORD=$(openssl passwd -6 -salt 'salt' ${MASTER_PASSWORD})
+ENCRYPTED_PASSWORD=$(openssl passwd -6 -salt 'salt' ${PASSWORD})
+usermod --password "${ENCRYPTED_MASTER_PASSWORD}" root
+usermod --password "${ENCRYPTED_PASSWORD}" ${USERNAME}
 echo "${HOSTNAME}" > /etc/hostname
+chsh -s ${SHELL} root
 
 echo -ne "
 ------------------------------------------------------------------------------------------
