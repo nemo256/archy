@@ -60,7 +60,7 @@ echo -ne "
 ------------------------------------------------------------------------------------------
 "
 mkfs.fat -F 32 ${DISK}1
-fatlabel ${DISK}1 ESP
+fatlabel ${DISK}1 BOOT
 mkfs.ext4 -L ROOT ${DISK}2
 mount /dev/disk/by-label/ROOT /mnt
 mkdir -p /mnt/boot/efi
