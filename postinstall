@@ -100,3 +100,13 @@ echo -ne "
 echo -ne 'KEYMAP="us"
 FONT="ter-132b"
 ' > /etc/vconsole.conf
+
+echo -ne "
+------------------------------------------------------------------------------------------
+                                Add no password sudo rights
+------------------------------------------------------------------------------------------
+"
+sed -ni "/^root/{a\
+  ${USERNAME} ALL=(ALL:ALL) NOPASSWD: ALL
+p}" /etc/sudoers
+
