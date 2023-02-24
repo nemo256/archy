@@ -1,5 +1,0 @@
-add 'install'
-add 'BOOT'
-[master 5970dc8] ESP -
- 2 files changed, 2 insertions(+), 2 deletions(-)
- create mode 100644 BOOT
