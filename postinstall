@@ -71,17 +71,17 @@ echo -ne "
                                   Installing packages
 ------------------------------------------------------------------------------------------
 "
-# if [[ ! -f "packages" ]]; then
-#   echo "Error: packages file not found."
-#   exit 1
-# fi
-# while read line
-# do
-#   if [[ $line == "" ]] || [[ $line == \#* ]]; then
-#     continue
-#   fi
-#   pacman -Sy --noconfirm --needed "$line"
-# done < packages
+if [[ ! -f "packages" ]]; then
+  echo "Error: packages file not found."
+  exit 1
+fi
+while read line
+do
+  if [[ $line == "" ]] || [[ $line == \#* ]]; then
+    continue
+  fi
+  pacman -Sy --noconfirm --needed "$line"
+done < packages
 
 echo -ne "
 ------------------------------------------------------------------------------------------
