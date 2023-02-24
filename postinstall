@@ -43,7 +43,6 @@ ln -s /usr/share/zoneinfo/${TIMEZONE} /etc/localtime
 localectl --no-ask-password set-keymap ${KEYMAP}
 hwclock --systohc
 sed -i 's/^#ParallelDownloads/ParallelDownloads/' /etc/pacman.conf
-sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf
 
 echo -ne "
 ------------------------------------------------------------------------------------------
