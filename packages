@@ -11,7 +11,7 @@ brightnessctl
 btrfs-progs
 cmake
 cryptsetup
-dhclient
+dhcpcd
 diffutils
 dkms
 dmidecode
