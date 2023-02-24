@@ -72,6 +72,23 @@ grub-mkconfig -o /boot/grub/grub.cfg
 
 echo -ne "
 ------------------------------------------------------------------------------------------
+                                  Installing packages
+------------------------------------------------------------------------------------------
+"
+if [[ ! -f "packages" ]]; then
+  echo "Error: packages file not found."
+  exit 1
+fi
+while read line
+do
+  if [[ $line == "" ]] || [[ $line == \#* ]]; then
+    continue
+  fi
+  xbps-install -S -y "$line"
+done < packages
+
+echo -ne "
+------------------------------------------------------------------------------------------
                                Managing Essential Services
 ------------------------------------------------------------------------------------------
 "
