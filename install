@@ -50,7 +50,7 @@ echo -ne "
 umount -A --recursive /mnt
 sgdisk -Z ${DISK}
 sgdisk -a 2048 -o ${DISK}
-sgdisk -n 1::+256M  --typecode=1:AF00 --change-name=1:'ESP'  ${DISK}
+sgdisk -n 1::+256M  --typecode=1:AF00 --change-name=1:'BOOT'  ${DISK}
 sgdisk -n 2::-0     --typecode=2:8300 --change-name=2:'ROOT' ${DISK}
 partprobe ${DISK}
 
@@ -64,7 +64,7 @@ fatlabel ${DISK}1 ESP
 mkfs.ext4 -L ROOT ${DISK}2
 mount /dev/disk/by-label/ROOT /mnt
 mkdir -p /mnt/boot/efi
-mount /dev/disk/by-label/ESP /mnt/boot/efi
+mount /dev/disk/by-label/BOOT /mnt/boot/efi
 
 echo -ne "
 ------------------------------------------------------------------------------------------
