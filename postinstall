@@ -80,7 +80,7 @@ do
   if [[ $line == "" ]] || [[ $line == \#* ]]; then
     continue
   fi
-  xbps-install -S -y "$line"
+  pacman -Sy --noconfirm --needed "$line"
 done < packages
 
 echo -ne "
