@@ -2,12 +2,6 @@
 #      Necessary      #
 #######################
 alsa-utils
-arch-install-scripts
-archinstall
-archiso
-archlinux-keyring
-automake
-base
 bind-tools
 binutils
 bison
