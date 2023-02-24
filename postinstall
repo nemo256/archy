@@ -78,7 +78,7 @@ echo -ne "
 "
 systemctl disable --now transmission.service
 systemctl disable --now dhcpcd.service
-systemctl enable --now NetworkManager.service
+systemctl enable  --now NetworkManager.service
 
 echo -ne "
 ------------------------------------------------------------------------------------------
