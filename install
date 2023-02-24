@@ -107,5 +107,5 @@ echo -ne "
                             Done - Please Eject Install Media
 
 "
-umount -R /mnt
+# umount -R /mnt
 # reboot
