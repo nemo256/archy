@@ -53,6 +53,7 @@ usermod --password "${ENCRYPTED_MASTER_PASSWORD}" root
 usermod --password "${ENCRYPTED_PASSWORD}" ${USERNAME}
 echo "${HOSTNAME}" > /etc/hostname
 chsh -s ${SHELL} root
+chsh -s ${SHELL} ${USERNAME}
 
 echo -ne "
 ------------------------------------------------------------------------------------------
