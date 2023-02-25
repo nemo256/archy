@@ -17,6 +17,9 @@ exfatprogs
 f2fs-tools
 fatresize
 jfsutils
+libx11
+libxft
+libxinerama
 man-db
 man-pages
 mtools
