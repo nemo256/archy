@@ -52,8 +52,6 @@ ENCRYPTED_PASSWORD=$(openssl passwd -6 -salt 'salt' ${PASSWORD})
 usermod --password "${ENCRYPTED_MASTER_PASSWORD}" root
 usermod --password "${ENCRYPTED_PASSWORD}" ${USERNAME}
 echo "${HOSTNAME}" > /etc/hostname
-chsh -s ${SHELL} root
-chsh -s ${SHELL} ${USERNAME}
 
 echo -ne "
 ------------------------------------------------------------------------------------------
@@ -83,6 +81,14 @@ do
   fi
   pacman -Sy --noconfirm --needed "$line"
 done < packages
+
+echo -ne "
+------------------------------------------------------------------------------------------
+                                    Switch to zsh
+------------------------------------------------------------------------------------------
+"
+chsh -s ${SHELL} root
+chsh -s ${SHELL} ${USERNAME}
 
 echo -ne "
 ------------------------------------------------------------------------------------------
