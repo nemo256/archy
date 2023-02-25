@@ -35,18 +35,10 @@ read
 
 echo -ne "
 ------------------------------------------------------------------------------------------
-                                     Network Setup
-------------------------------------------------------------------------------------------
-"
-# cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup
-# reflector -a 48 -c France,Germany -f 5 -l 20 --sort rate --verbose --save /etc/pacman.d/mirrorlist
-# mkdir /mnt &>/dev/null
-
-echo -ne "
-------------------------------------------------------------------------------------------
                                    Formating Disks
 ------------------------------------------------------------------------------------------
 "
+mkdir /mnt &>/dev/null
 umount -A --recursive /mnt
 sgdisk -Z ${DISK}
 sgdisk -a 2048 -o ${DISK}
@@ -94,7 +86,6 @@ echo -ne "
 ------------------------------------------------------------------------------------------
 "
 cp -fvr /mnt/etc/pacman.d/mirrorlist /mnt/etc/pacman.d/mirrorlist.backup
-rm -fvr /mnt/etc/pacman.d/mirrorlist
 cp -fvr /etc/pacman.d/mirrorlist /mnt/etc/pacman.d/mirrorlist
 cp -fvr /root/archy/postinstall /root/archy/packages /root/archy/.env /mnt
 ( arch-chroot /mnt /postinstall ) |& tee postinstall.log

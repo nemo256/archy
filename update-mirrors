@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup
+reflector -a 48 -c France,Germany -f 5 -l 20 --sort rate --verbose --save /etc/pacman.d/mirrorlist
