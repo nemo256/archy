@@ -26,9 +26,6 @@ findutils
 gcc
 grub
 jfsutils
-linux-firmware
-linux-lts
-linux-lts-headers
 make
 man-db
 man-pages
