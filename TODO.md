@@ -1,0 +1,1 @@
+- [ ] Install paru ($ git clone https://aur.archlinux.org/paru-bin )
