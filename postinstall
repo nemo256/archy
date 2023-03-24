@@ -10,7 +10,7 @@
 # PASSWORD=<New user password>
 # HOSTNAME=<Hostname eg: macbook>
 # SHELL=<eg: /bin/bash>
-# TOKEN=<Your Github token (PAT)>
+# TOKEN=<Github token (PAT)>
 # DISK=<eg: /dev/sda>
 # MOUNT_OPTIONS=<eg for ssd add: "noatime,ssd,...">
 # FS=<Filesystem eg: ext4, btrfs...>
