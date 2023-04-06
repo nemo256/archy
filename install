@@ -52,7 +52,7 @@ logo "Press any key to continue..."
 read
 
 logo "Updating mirrorlist..."
-reflector -a 48 -c France,Germany,Spain,Portugal -f 7 -l 14 --sort rate --verbose --save /etc/pacman.d/mirrorlist
+reflector -a 48 -c France,Germany,Spain,Portugal -f 3 -l 5 --sort rate --verbose --save /etc/pacman.d/mirrorlist
 
 # Information gathering
 prompt "Hostname" HOSTNAME macbook
