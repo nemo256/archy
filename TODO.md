@@ -1,1 +1,2 @@
 - [ ] Install paru ($ git clone https://aur.archlinux.org/paru-bin )
+- [ ] Refactor everything and get rid of .env file (will use variables instead for general use)
