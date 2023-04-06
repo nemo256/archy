@@ -54,7 +54,7 @@ read
 logo "Updating mirrorlist..."
 reflector -a 48 -c France,Germany,Spain,Portugal -f 3 -l 5 --sort rate --verbose --save /etc/pacman.d/mirrorlist
 
-# Information gathering
+logo "Enter your infos..."
 prompt "Hostname" HOSTNAME macbook
 prompt "Root password" MASTER_PASSWORD "None"
 prompt "Username" USERNAME "None"
