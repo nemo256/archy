@@ -51,6 +51,31 @@ function logo() {
 logo "Press any key to continue..."
 read
 
+# Information gathering
+devices=$(lsblk -o NAME,SIZE | grep -e '^sd\|^nvme')
+PS3="Select a disk: "
+echo "Available devices:"
+options=()
+while read -r line; do
+    disk=$(echo $line | awk '{print $1}')
+    size=$(echo $line | awk '{print $2}')
+    options+=("$disk ($size)")
+done <<< "$devices"
+options+=("Quit")
+select device in "${options[@]}"; do
+    case $device in
+        "") echo "Invalid selection";;
+        "Quit") exit;;
+        *) DISK=$(echo $device | awk '{print $1}'); break;;
+    esac
+done
+
+prompt "Hostname" HOSTNAME macbook
+prompt "Root password" MASTER_PASSWORD "None"
+prompt "Username" USERNAME "None"
+prompt "Password" PASSWORD "None"
+prompt "Timezone" TIMEZONE "Africa/Algiers"
+
 logo "Formating Disks..."
 mkdir /mnt &>/dev/null
 swapoff /mnt/swapfile
