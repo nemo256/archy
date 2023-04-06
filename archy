@@ -162,7 +162,7 @@ arch-chroot /mnt usermod --password "${ENCRYPTED_PASSWORD}" ${USERNAME}
 echo "${HOSTNAME}" > /mnt/etc/hostname
 
 logo "Creating GRUB Boot Menu..."
-arch-chroot /mnt pacman -S --noconfirm --needed grub os-prober efibootmgr dhcpcd networkmanager
+arch-chroot /mnt pacman -S --noconfirm --needed grub os-prober efibootmgr dhcpcd networkmanager git
 arch-chroot /mnt grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=grub
 sed -i 's/GRUB_CMDLINE_LINUX_DEFAULT="[^"]*/& rootflags=data=writeback libata.force=1:noncq acpi_osi=!Darwin/' /mnt/etc/default/grub
 sed -i 's/^GRUB_TIMEOUT=5/GRUB_TIMEOUT=0/' /mnt/etc/default/grub
