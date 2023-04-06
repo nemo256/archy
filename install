@@ -128,6 +128,13 @@ logo "Archy installation..."
 pacstrap /mnt base base-devel ${KERNEL} ${KERNEL}-headers linux-firmware
 genfstab -U /mnt >> /mnt/etc/fstab
 
+logo "Installing audio server..."
+if [[ $AUDIO_SERVER == "pipewire" ]]; then
+  arch-chroot /mnt pacman -S --noconfirm --needed pipewire pipewire-alsa pipewire-pulse pipewire-jack wireplumber
+elif [[ $AUDIO_SERVER == "pulseaudio" ]]; then
+  arch-chroot /mnt pacman -S --noconfirm --needed pulseaudio pulseaudio-alsa
+fi
+
 logo "Copying the mirror list to the new system..."
 cp -fvr /mnt/etc/pacman.d/mirrorlist /mnt/etc/pacman.d/mirrorlist.backup
 cp -fvr /etc/pacman.d/mirrorlist /mnt/etc/pacman.d/mirrorlist
