@@ -69,11 +69,7 @@ mount /dev/disk/by-label/ROOT /mnt
 mkdir -p /mnt/boot/efi
 mount /dev/disk/by-label/BOOT /mnt/boot/efi
 
-echo -ne "
-------------------------------------------------------------------------------------------
-                                Create a swap partition 4Gb
-------------------------------------------------------------------------------------------
-"
+logo "Create a swap partition 4Gb..."
 dd if=/dev/zero of=/mnt/swapfile bs=1M count=1024 status=progress
 chmod 600 /mnt/swapfile
 chown root /mnt/swapfile
@@ -83,12 +79,8 @@ if ! grep -qs '/mnt' /proc/mounts; then
   (sleep 3 && reboot )
 fi
 
-echo -ne "
-------------------------------------------------------------------------------------------
-                                    Archy installation
-------------------------------------------------------------------------------------------
-"
-pacstrap /mnt base base-devel linux-lts linux-lts-headers linux-firmware
+logo "Archy installation..."
+pacstrap /mnt base base-devel ${KERNEL} ${KERNEL}-headers linux-firmware
 genfstab -U /mnt >> /mnt/etc/fstab
 
 echo -ne "
