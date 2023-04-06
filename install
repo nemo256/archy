@@ -1,34 +1,21 @@
 #!/usr/bin/env bash
 
 ################################################
-#                                              #
-# Create a .env file containing these options: #
-#                                              #
+#        Custom Arch installer script          #
 ################################################
-#
-# USERNAME=<New user name>
-# PASSWORD=<New user password>
-# HOSTNAME=<Hostname eg: macbook>
-# SHELL=<eg: /bin/bash>
-# TOKEN=<Your Github token (PAT)>
-# DISK=<eg: /dev/sda>
-# MOUNT_OPTIONS=<eg for ssd add: "noatime,ssd,...">
-# FS=<Filesystem eg: ext4, btrfs...>
-# TIMEZONE=<eg: Europe/Paris>
-# KEYMAP=<eg: us,uk,es...>
 
-source .env
+# Prompt to gather data
+function prompt {
+    local message=$1
+    local variable=$2
+    local default=$3
+    tput setaf 15
+    read -p "${message} (default: ${default}): " value
+    tput sgr0
+    eval $variable=${value:-$default}
+}
 
-# Logo
-clear
-echo -ne "
-------------------------------------------------------------------------------------------
-                                Automated Archy Installer
-------------------------------------------------------------------------------------------
 
-                               Press any key to continue...
-"
-read
 
 echo -ne "
 ------------------------------------------------------------------------------------------
