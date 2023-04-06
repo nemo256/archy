@@ -24,7 +24,7 @@
 
 ### Download the project:
 ```shell
-pacman -S git
+pacman -Sy git
 git clone https://github.com/nemo256/archy
 cd archy
 ```
