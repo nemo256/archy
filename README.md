@@ -25,6 +25,7 @@
 ### Using curl (curl is already installed):
 ```shell
 $ curl -O https://raw.githubusercontent.com/nemo256/archy/master/archy
+$ chmod +x archy
 $ ./archy
 ```
 
