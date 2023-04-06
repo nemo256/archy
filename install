@@ -48,14 +48,12 @@ function logo() {
     tput sgr0
 }
 
+logo "Press any key to continue..."
+read
 
-echo -ne "
-------------------------------------------------------------------------------------------
-                                   Formating Disks
-------------------------------------------------------------------------------------------
-"
+logo "Formating Disks..."
 mkdir /mnt &>/dev/null
-umount -A --recursive /mnt
+umount -Af --recursive /mnt
 sgdisk -Z ${DISK}
 sgdisk -a 2048 -o ${DISK}
 sgdisk -n 1::+256M  --typecode=1:AF00 --change-name=1:'BOOT'  ${DISK}
