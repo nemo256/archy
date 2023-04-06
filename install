@@ -58,6 +58,18 @@ prompt "Username" USERNAME "None"
 prompt "Password" PASSWORD "None"
 prompt "Timezone" TIMEZONE "Africa/Algiers"
 
+PS3="Select a kernel: "
+select KERNEL in "linux" "linux-lts" "linux-zen" "linux-hardened"; do
+  case $KERNEL in
+    "") KERNEL="linux"; break;;
+    "linux") KERNEL="linux"; break;;
+    "linux-lts") KERNEL="linux-lts"; break;;
+    "linux-zen") KERNEL="linux-zen"; break;;
+    "linux-hardened") KERNEL="linux-hardened"; break;;
+  esac
+done
+
+PS3="Select an audio server: "
 select AUDIO_SERVER in "Pipewire (New, suitable for modern multimedia needs)" "Pulseaudio (Old, suitable for traditional Linux audio needs)"; do
     case $AUDIO_SERVER in
         "") AUDIO_SERVER="pipewire"; break;;
@@ -91,13 +103,13 @@ umount -Af --recursive /mnt
 sgdisk -Z /dev/${DISK}
 sgdisk -a 2048 -o /dev/${DISK}
 sgdisk -n 1::+256M  --typecode=1:AF00 --change-name=1:'BOOT' /dev/${DISK}
-sgdisk -n 2::-0     --typecode=2:8300 --change-name=2:'ROOT' ${DISK}
-partprobe ${DISK}
+sgdisk -n 2::-0     --typecode=2:8300 --change-name=2:'ROOT' /dev/${DISK}
+partprobe /dev/${DISK}
 
 logo "Creating Filesystems..."
-mkfs.fat -F 32 ${DISK}1
-fatlabel ${DISK}1 BOOT
-mkfs.ext4 -L ROOT ${DISK}2
+mkfs.fat -F 32 /dev/${DISK}1
+fatlabel /dev/${DISK}1 BOOT
+mkfs.ext4 -L ROOT /dev/${DISK}2
 mount /dev/disk/by-label/ROOT /mnt
 mkdir -p /mnt/boot/efi
 mount /dev/disk/by-label/BOOT /mnt/boot/efi
