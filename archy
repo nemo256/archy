@@ -48,6 +48,9 @@ function logo() {
     tput sgr0
 }
 
+# Set a bold terminus font
+setfont ter-132b
+
 logo "Press any key to continue..."
 read
 
