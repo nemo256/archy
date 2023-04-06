@@ -88,9 +88,9 @@ logo "Formating Disks..."
 mkdir /mnt &>/dev/null
 swapoff /mnt/swapfile
 umount -Af --recursive /mnt
-sgdisk -Z ${DISK}
-sgdisk -a 2048 -o ${DISK}
-sgdisk -n 1::+256M  --typecode=1:AF00 --change-name=1:'BOOT'  ${DISK}
+sgdisk -Z /dev/${DISK}
+sgdisk -a 2048 -o /dev/${DISK}
+sgdisk -n 1::+256M  --typecode=1:AF00 --change-name=1:'BOOT' /dev/${DISK}
 sgdisk -n 2::-0     --typecode=2:8300 --change-name=2:'ROOT' ${DISK}
 partprobe ${DISK}
 
@@ -119,28 +119,15 @@ genfstab -U /mnt >> /mnt/etc/fstab
 logo "Copying the mirror list to the new system..."
 cp -fvr /mnt/etc/pacman.d/mirrorlist /mnt/etc/pacman.d/mirrorlist.backup
 cp -fvr /etc/pacman.d/mirrorlist /mnt/etc/pacman.d/mirrorlist
-( arch-chroot /mnt /postinstall ) |& tee postinstall.log
-cp -fvr postinstall.log /mnt
 
-
-
-
-echo -ne "
-------------------------------------------------------------------------------------------
-                                Setup Language And Locale
-------------------------------------------------------------------------------------------
-"
+logo "Setup Language And Locale..."
 arch-chroot /mnt sed -i 's/^#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen
 arch-chroot /mnt locale-gen
 arch-chroot /mnt ln -s /usr/share/zoneinfo/${TIMEZONE} /etc/localtime
 arch-chroot /mnt hwclock --systohc
 arch-chroot /mnt sed -i 's/^#ParallelDownloads/ParallelDownloads/' /etc/pacman.conf
 
-echo -ne "
-------------------------------------------------------------------------------------------
-                                     Adding User
-------------------------------------------------------------------------------------------
-"
+logo "Adding User..."
 arch-chroot /mnt groupadd libvirt
 arch-chroot /mnt useradd -m -G wheel,audio,video,libvirt -s /bin/bash --badname ${USERNAME}
 ENCRYPTED_MASTER_PASSWORD=$(openssl passwd -6 -salt 'salt' ${MASTER_PASSWORD})
@@ -149,11 +136,7 @@ arch-chroot /mnt usermod --password "${ENCRYPTED_MASTER_PASSWORD}" root
 arch-chroot /mnt usermod --password "${ENCRYPTED_PASSWORD}" ${USERNAME}
 echo "${HOSTNAME}" > /mnt/etc/hostname
 
-echo -ne "
-------------------------------------------------------------------------------------------
-                                 Creating GRUB Boot Menu
-------------------------------------------------------------------------------------------
-"
+logo "Creating GRUB Boot Menu..."
 arch-chroot /mnt pacman -S --noconfirm --needed grub os-prober efibootmgr dhcpcd
 arch-chroot /mnt grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=grub
 sed -i 's/GRUB_CMDLINE_LINUX_DEFAULT="[^"]*/& rootflags=data=writeback libata.force=1:noncq acpi_osi=!Darwin/' /mnt/etc/default/grub
@@ -161,29 +144,17 @@ sed -i 's/^GRUB_TIMEOUT=5/GRUB_TIMEOUT=0/' /mnt/etc/default/grub
 sed -i 's/^#GRUB_DISABLE_SUBMENU=y/GRUB_DISABLE_SUBMENU=y/' /mnt/etc/default/grub
 arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
 
-echo -ne "
-------------------------------------------------------------------------------------------
-                               Managing Essential Services
-------------------------------------------------------------------------------------------
-"
+logo "Managing Essential Services..."
 arch-chroot /mnt systemctl disable --now transmission.service
 arch-chroot /mnt systemctl enable  --now dhcpcd.service
 arch-chroot /mnt systemctl enable  --now NetworkManager.service
 
-echo -ne "
-------------------------------------------------------------------------------------------
-                              Changing Default Console Font
-------------------------------------------------------------------------------------------
-"
+logo "Changing Default Console Font..."
 echo -ne 'KEYMAP="us"
 FONT="ter-132b"
 ' > /mnt/etc/vconsole.conf
 
-echo -ne "
-------------------------------------------------------------------------------------------
-                                Add no password sudo rights
-------------------------------------------------------------------------------------------
-"
+logo "Add no password sudo rights..."
 sed -ni "/^root/{a\
   ${USERNAME} ALL=(ALL:ALL) NOPASSWD: ALL
 p}" /mnt/etc/sudoers
