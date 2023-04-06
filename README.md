@@ -16,11 +16,11 @@
 <!-- TABLE OF CONTENTS -->
 ## Table of Contents
 
-* [Setup ⚙️](#setup)
+* [Install ⚙️](#install)
 * [Credits 🤝](#credits)
 * [License 📑](#license)
 
-## Setup ⚙️
+## Install ⚙️
 
 ### Using curl (curl is already installed):
 ```shell
