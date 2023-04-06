@@ -22,16 +22,18 @@
 
 ## Setup ⚙️
 
-### Download the project:
+### Using curl (curl is already installed):
 ```shell
-pacman -Sy git
-git clone https://github.com/nemo256/archy
-cd archy
+$ curl -O https://raw.githubusercontent.com/nemo256/archy/master/archy
+$ ./archy
 ```
 
-### Run the installation 🚀:
+### Using git:
 ```shell
-./install
+$ pacman -Sy git
+$ git clone https://github.com/nemo256/archy
+$ cd archy
+$ ./archy
 ```
 
 ## Credits 🤝
