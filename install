@@ -76,6 +76,14 @@ prompt "Username" USERNAME "None"
 prompt "Password" PASSWORD "None"
 prompt "Timezone" TIMEZONE "Africa/Algiers"
 
+select AUDIO_SERVER in "Pipewire (New, suitable for modern multimedia needs)" "Pulseaudio (Old, suitable for traditional Linux audio needs)"; do
+    case $AUDIO_SERVER in
+        "") AUDIO_SERVER="pipewire"; break;;
+        "Pipewire (New, suitable for modern multimedia needs)") AUDIO_SERVER="pipewire"; break;;
+        "Pulseaudio (Old, suitable for traditional Linux audio needs)") AUDIO_SERVER="pulseaudio"; break;;
+    esac
+done
+
 logo "Formating Disks..."
 mkdir /mnt &>/dev/null
 swapoff /mnt/swapfile
@@ -108,23 +116,13 @@ logo "Archy installation..."
 pacstrap /mnt base base-devel ${KERNEL} ${KERNEL}-headers linux-firmware
 genfstab -U /mnt >> /mnt/etc/fstab
 
-echo -ne "
-------------------------------------------------------------------------------------------
-                           Chrooting Into The New Installation
-------------------------------------------------------------------------------------------
-"
+logo "Chrooting Into The New Installation..."
 cp -fvr /mnt/etc/pacman.d/mirrorlist /mnt/etc/pacman.d/mirrorlist.backup
 cp -fvr /etc/pacman.d/mirrorlist /mnt/etc/pacman.d/mirrorlist
 cp -fvr /root/archy/postinstall /root/archy/packages /root/archy/.env /mnt
 ( arch-chroot /mnt /postinstall ) |& tee postinstall.log
 cp -fvr postinstall.log /mnt
 
-echo -ne "
-------------------------------------------------------------------------------------------
-                               Automated Archy Installer
-------------------------------------------------------------------------------------------
-                            Done - Please Eject Install Media
-
-"
+logo "Done - Please Eject Install Media"
 # umount -R /mnt
 # reboot
