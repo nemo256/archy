@@ -172,7 +172,6 @@ arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
 logo "Managing Essential Services..."
 arch-chroot /mnt systemctl disable transmission.service
 arch-chroot /mnt systemctl enable  NetworkManager.service
-arch-chroot /mnt systemctl enable  slock@${USERNAME}.service
 
 logo "Changing Default Console Font..."
 echo -ne 'KEYMAP="us"
