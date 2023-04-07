@@ -171,7 +171,6 @@ arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
 
 logo "Managing Essential Services..."
 arch-chroot /mnt systemctl disable --now transmission.service
-arch-chroot /mnt systemctl enable  --now dhcpcd.service
 arch-chroot /mnt systemctl enable  --now NetworkManager.service
 
 logo "Changing Default Console Font..."
